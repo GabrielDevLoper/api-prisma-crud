@@ -1,0 +1,35 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "UpdateField",
+      "model": "Address",
+      "field": "state",
+      "arity": "Optional"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Address",
+      "field": "city",
+      "arity": "Optional"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Address",
+      "field": "neighborhood",
+      "arity": "Optional"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Address",
+      "field": "street",
+      "arity": "Optional"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Address",
+      "field": "number",
+      "arity": "Optional"
+    }
+  ]
+}

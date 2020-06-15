@@ -1,0 +1,11 @@
+# Prisma Migrate lockfile v1
+
+20200612170249-create-table-users
+20200612170700-create-table-clients
+20200612171958-create-table-address
+20200612172442-create-table-product
+20200612172536-create-table-products
+20200612172929-create-table-categorys
+20200612174405-alter-table-address
+20200612175153-alter-field-number-to-contact-in-clients
+20200612175835-alter-type-column-contact-to-string

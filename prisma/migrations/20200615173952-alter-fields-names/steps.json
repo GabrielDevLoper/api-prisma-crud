@@ -1,0 +1,41 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Client",
+      "field": "name_client",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Client",
+      "field": "name"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Product",
+      "field": "name_product",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Product",
+      "field": "name"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Category",
+      "field": "name_category",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Category",
+      "field": "name"
+    }
+  ]
+}

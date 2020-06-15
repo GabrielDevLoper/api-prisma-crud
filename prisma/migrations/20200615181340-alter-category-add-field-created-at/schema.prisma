@@ -17,12 +17,12 @@ model User {
 }
 
 model Client {
-  id      Int      @id @default(autoincrement())
-  name    String
-  cpf     String?  @unique
-  email   String?
-  contact String?
-  address Address?
+  id          Int      @id @default(autoincrement())
+  name_client String
+  cpf         String?  @unique
+  email       String?
+  contact     String?
+  address     Address?
 }
 
 model Address {
@@ -37,17 +37,19 @@ model Address {
 }
 
 model Product {
-  id          Int      @id @default(autoincrement())
-  name        String
-  qtd         Int
-  price       Float
-  price_total Float
-  category    Category
+  id           Int       @id @default(autoincrement())
+  name_product String
+  qtd          Int
+  price        Float
+  price_total  Float
+  category_id  Int?
+  category     Category? @relation(fields: [category_id], references: [id])
+
 }
 
 model Category {
-  id         Int      @id @default(autoincrement())
-  name       String
-  product_id Int?
-  product    Product? @relation(fields: [product_id], references: [id])
+  id            Int      @id @default(autoincrement())
+  name_category String
+  product       Product?
+  createdAt     DateTime @default(now())
 }

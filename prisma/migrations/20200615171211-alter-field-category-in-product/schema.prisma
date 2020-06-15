@@ -37,12 +37,12 @@ model Address {
 }
 
 model Product {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   name        String
   qtd         Int
   price       Float
   price_total Float
-  category    Category
+  category    Category?
 }
 
 model Category {

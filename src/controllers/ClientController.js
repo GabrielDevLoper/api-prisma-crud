@@ -14,14 +14,14 @@ class ClientController {
   }
 
   async create(req, res) {
-    const { name, email, cpf, contact } = req.body;
+    const { name_client, email, cpf, contact } = req.body;
 
     const createclient = await prisma.client.create({
       data: {
         email,
         cpf,
         contact,
-        name,
+        name_client,
       },
       include: {
         address: true,
@@ -29,6 +29,25 @@ class ClientController {
     });
 
     return res.json(createclient);
+  }
+
+  async update(req, res) {
+    const { id } = req.params;
+    const { name_client, email, cpf, contact } = req.body;
+
+    const client = await prisma.client.update({
+      where: {
+        id: Number(id),
+      },
+      data: {
+        name_client,
+        email,
+        cpf,
+        contact,
+      },
+    });
+
+    return res.json(client);
   }
 
   async delete(req, res) {

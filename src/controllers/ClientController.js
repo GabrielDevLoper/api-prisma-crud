@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-class ClientController {
+export default {
   async index(req, res) {
     const listclient = await prisma.client.findMany({
       include: {
@@ -11,7 +11,7 @@ class ClientController {
     });
 
     return res.json(listclient);
-  }
+  },
 
   async create(req, res) {
     const { name_client, email, cpf, contact } = req.body;
@@ -29,7 +29,7 @@ class ClientController {
     });
 
     return res.json(createclient);
-  }
+  },
 
   async update(req, res) {
     const { id } = req.params;
@@ -48,7 +48,7 @@ class ClientController {
     });
 
     return res.json(client);
-  }
+  },
 
   async delete(req, res) {
     const { id } = req.params;
@@ -69,7 +69,5 @@ class ClientController {
     });
 
     return res.json(deleteClient);
-  }
-}
-
-export default ClientController;
+  },
+};

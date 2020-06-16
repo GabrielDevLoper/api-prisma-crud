@@ -45,6 +45,26 @@ export default {
     return res.json(address);
   },
 
+  async update(req, res) {
+    const { id } = req.params;
+    const { city, neighborhood, number, state, street } = req.body;
+
+    const address = await prisma.address.update({
+      where: {
+        id: Number(id),
+      },
+      data: {
+        city,
+        neighborhood,
+        number,
+        state,
+        street,
+      },
+    });
+
+    return res.json(address);
+  },
+
   async delete(req, res) {
     const { id } = req.params;
     await prisma.address.delete({

@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgresql"
-  url = "***"
+  url      = "postgresql://postgres:postgres@localhost:5432/prisma-crud?schema=public"
 }
 
 generator client {

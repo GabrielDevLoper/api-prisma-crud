@@ -16,6 +16,12 @@ export default {
   async create(req, res) {
     const { name_client, email, cpf, contact } = req.body;
 
+    const client = await prisma.client.findMany({ where: { cpf } });
+
+    if (client) {
+      return res.json({ message: "Usuário já existe" });
+    }
+
     const createclient = await prisma.client.create({
       data: {
         email,

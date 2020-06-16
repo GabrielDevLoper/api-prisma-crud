@@ -15,3 +15,4 @@
 20200615181023-alter-category-add-fields-datetime
 20200615181340-alter-category-add-field-created-at
 20200615193811-add-field-created-at-into-all-tables
+20200616135302-alter-relation-product-with-category

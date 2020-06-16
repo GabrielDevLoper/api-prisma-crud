@@ -19,6 +19,8 @@ export default {
       },
     });
 
-    return res.json(createUser);
+    const { id } = createUser;
+
+    return res.json({ id });
   },
 };

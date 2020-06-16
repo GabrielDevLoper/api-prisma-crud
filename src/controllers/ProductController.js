@@ -7,7 +7,6 @@ export default {
 
     return res.json(listProduct);
   },
-
   async create(req, res) {
     const { category_id } = req.params;
     const { name_product, price, qtd } = req.body;
@@ -27,7 +26,6 @@ export default {
 
     return res.json(product);
   },
-
   async delete(req, res) {
     const { id } = req.params;
     await prisma.product.delete({
@@ -38,7 +36,6 @@ export default {
 
     return res.json({ message: "Produto excluído com sucesso" });
   },
-
   async update(req, res) {
     const { product_id, category_id } = req.params;
     const { name_product, price, qtd } = req.body;

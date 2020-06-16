@@ -12,7 +12,6 @@ export default {
 
     return res.json(listclient);
   },
-
   async create(req, res) {
     const { name_client, email, cpf, contact } = req.body;
 
@@ -36,7 +35,6 @@ export default {
 
     return res.json(createclient);
   },
-
   async update(req, res) {
     const { id } = req.params;
     const { name_client, email, cpf, contact } = req.body;
@@ -55,7 +53,6 @@ export default {
 
     return res.json(client);
   },
-
   async delete(req, res) {
     const { id } = req.params;
 

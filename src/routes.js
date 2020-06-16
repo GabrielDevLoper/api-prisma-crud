@@ -32,6 +32,8 @@ routes.put(
 // Rotas para categorias
 routes.post("/category", CategoryController.create);
 routes.get("/category", CategoryController.index);
+routes.delete("/category/:id", CategoryController.delete);
+routes.put("/category/:id", CategoryController.update);
 
 // Rotas para usuários
 routes.get("/users", UserController.index);

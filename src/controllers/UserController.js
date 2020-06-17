@@ -15,16 +15,19 @@ export default {
 
     //Criptografando a senha do usuario
     const passwordHash = await bcrypt.hash(password, 8);
+    try {
+      const createUser = await prisma.user.create({
+        data: {
+          email,
+          password: passwordHash,
+        },
+      });
 
-    const createUser = await prisma.user.create({
-      data: {
-        email,
-        password: passwordHash,
-      },
-    });
+      const { id } = createUser;
 
-    const { id } = createUser;
-
-    return res.json({ id });
+      return res.json({ id });
+    } catch (error) {
+      return res.json({ message: error });
+    }
   },
 };

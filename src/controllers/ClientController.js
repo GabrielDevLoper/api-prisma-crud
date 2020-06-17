@@ -4,10 +4,10 @@ const prisma = new PrismaClient();
 
 export default {
   async index(req, res) {
+    const { page = 1 } = req.query;
     const listclient = await prisma.client.findMany({
-      include: {
-        address: true,
-      },
+      skip: (page - 1) * 5,
+      take: 5,
     });
 
     return res.json(listclient);
@@ -15,7 +15,11 @@ export default {
   async create(req, res) {
     const { name_client, email, cpf, contact } = req.body;
 
-    const client = await prisma.client.findMany({ where: { cpf } });
+    const client = await prisma.client.findOne({
+      where: {
+        cpf,
+      },
+    });
 
     if (client) {
       return res.json({ message: "Usuário já existe" });

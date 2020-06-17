@@ -4,7 +4,11 @@ const prisma = new PrismaClient();
 
 export default {
   async index(req, res) {
-    const listCategory = await prisma.category.findMany();
+    const listCategory = await prisma.category.findMany({
+      include: {
+        product: true,
+      },
+    });
 
     return res.json(listCategory);
   },

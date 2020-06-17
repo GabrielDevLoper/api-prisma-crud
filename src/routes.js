@@ -5,6 +5,9 @@ import ClientController from "./controllers/ClientController";
 import AddressController from "./controllers/AddressController";
 import ProductController from "./controllers/ProductController";
 import CategoryController from "./controllers/CategoryController";
+import SessionController from "./controllers/SessionController";
+
+import authMiddleware from "./middlewares/auth";
 
 const routes = express.Router();
 
@@ -38,5 +41,14 @@ routes.put("/category/:id", CategoryController.update);
 // Rotas para usuários
 routes.get("/users", UserController.index);
 routes.post("/users", UserController.create);
+
+// Rotas para para sesões (LOGIN) de usuarios
+routes.post("/sessions", SessionController.create);
+
+/* Rotas a partir de agora so fazem com usuarios autenticados */
+routes.use(authMiddleware);
+
+// Rotas para autentiicação
+routes.get("/authenticated", SessionController.userLogged);
 
 export default routes;

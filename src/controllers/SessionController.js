@@ -18,7 +18,7 @@ class SessionController {
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
     if (!isPasswordCorrect) {
-      return res.status(401).json({ message: "Senha incorreta" });
+      return res.json({ message: "Senha Incorreta" });
     }
 
     return res.json({
@@ -41,7 +41,7 @@ class SessionController {
       },
     });
 
-    return res.json({ email: user.email });
+    return res.json({ email: user.email, name: user.name_user });
   }
 }
 

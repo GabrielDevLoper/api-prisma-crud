@@ -12,6 +12,11 @@ export default {
         take: 5,
       });
 
+      //retornando todos os clientes cadastrados na tabela
+      const countClients = await prisma.client.count();
+      res.header("X-Total-Count", countClients);
+      res.header("Access-Control-Expose-Headers", "X-Total-Count");
+
       return res.json(listclient);
     } catch (error) {
       return res.json({ message: error });

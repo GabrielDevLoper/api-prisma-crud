@@ -16,6 +16,7 @@ routes.get("/clients", ClientController.index);
 routes.post("/clients", ClientController.create);
 routes.delete("/clients/:id", ClientController.delete);
 routes.put("/clients/:id", ClientController.update);
+routes.get("/clients/:id", ClientController.show);
 
 // Rotas para endereços
 routes.post("/address/:id", AddressController.create);

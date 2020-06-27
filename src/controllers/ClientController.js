@@ -99,4 +99,15 @@ export default {
       return res.json({ message: error });
     }
   },
+
+  async show(req, res) {
+    const { id } = req.params;
+    const showClient = await prisma.client.findOne({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    return res.json(showClient);
+  },
 };

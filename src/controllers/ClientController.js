@@ -10,6 +10,9 @@ export default {
       const listclient = await prisma.client.findMany({
         skip: (page - 1) * 5,
         take: 5,
+        include: {
+          address: true,
+        },
       });
 
       //retornando todos os clientes cadastrados na tabela
@@ -23,7 +26,18 @@ export default {
     }
   },
   async create(req, res) {
-    const { name_client, email, cpf, contact } = req.body;
+    const {
+      name_client,
+      email,
+      cpf,
+      contact,
+      city,
+      neighborhood,
+      number,
+      state,
+      street,
+      zipcode,
+    } = req.body;
 
     try {
       const client = await prisma.client.findOne({
@@ -42,9 +56,16 @@ export default {
           cpf,
           contact,
           name_client,
-        },
-        include: {
-          address: true,
+          address: {
+            create: {
+              neighborhood,
+              city,
+              number,
+              state,
+              street,
+              zipcode,
+            },
+          },
         },
       });
 

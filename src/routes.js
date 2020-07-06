@@ -1,4 +1,4 @@
-import express from "express";
+import { Router } from "express";
 
 import UserController from "./controllers/UserController";
 import ClientController from "./controllers/ClientController";
@@ -9,7 +9,7 @@ import SessionController from "./controllers/SessionController";
 
 import authMiddleware from "./middlewares/auth";
 
-const routes = express.Router();
+const routes = Router();
 
 // Rotas para clientes
 routes.get("/clients", ClientController.index);

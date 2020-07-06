@@ -18,3 +18,6 @@
 20200616135302-alter-relation-product-with-category
 20200617013027-add-field-updated-at
 20200625194731-add-field-name-user-in-table-user
+20200706140240-add-field-zipcode-address
+20200706143109-alter-field-zipcode-to-optional
+20200706150932-add-zipcode-address

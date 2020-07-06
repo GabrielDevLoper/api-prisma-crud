@@ -13,6 +13,12 @@ export default {
   async create(req, res) {
     const { email, password, name_user } = req.body;
 
+    const verifyUser = await prisma.user.findOne({ where: { email } });
+
+    if (verifyUser) {
+      return res.json({ message: "Email já está sendo utilizado" });
+    }
+
     //Criptografando a senha do usuario
     const passwordHash = await bcrypt.hash(password, 8);
     try {

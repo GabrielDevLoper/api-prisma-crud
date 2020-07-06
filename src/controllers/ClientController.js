@@ -76,7 +76,18 @@ export default {
   },
   async update(req, res) {
     const { id } = req.params;
-    const { name_client, email, cpf, contact } = req.body;
+    const {
+      name_client,
+      email,
+      cpf,
+      contact,
+      neighborhood,
+      city,
+      number,
+      state,
+      street,
+      zipcode,
+    } = req.body;
 
     try {
       const client = await prisma.client.update({
@@ -88,6 +99,16 @@ export default {
           email,
           cpf,
           contact,
+          address: {
+            update: {
+              neighborhood,
+              city,
+              number,
+              state,
+              street,
+              zipcode,
+            },
+          },
         },
       });
 

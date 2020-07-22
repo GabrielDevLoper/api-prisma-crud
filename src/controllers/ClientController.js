@@ -148,6 +148,9 @@ export default {
       where: {
         id: Number(id),
       },
+      include: {
+        address: true,
+      },
     });
 
     return res.json(showClient);

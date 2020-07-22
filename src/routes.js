@@ -23,6 +23,7 @@ routes.post("/address/:id", AddressController.create);
 routes.delete("/address/:id", AddressController.delete);
 routes.put("/address/:id", AddressController.update);
 routes.get("/address", AddressController.index);
+routes.get("/address/:id", AddressController.show);
 
 // Rotas para produtos
 routes.post("/products/:category_id", ProductController.create);

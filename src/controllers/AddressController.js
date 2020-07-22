@@ -87,4 +87,16 @@ export default {
       return res.json({ message: error });
     }
   },
+
+  async show(req, res) {
+    const { id } = req.params;
+
+    const address = await prisma.address.findOne({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    return res.json(address);
+  },
 };

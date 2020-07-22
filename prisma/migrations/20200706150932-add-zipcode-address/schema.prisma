@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgresql"
-  url = "***"
+  url      = "***"
 }
 
 generator client {
@@ -39,6 +39,7 @@ model Address {
   street       String?
   number       Int?
   client_id    Int?
+  teste        String
   client       Client?  @relation(fields: [client_id], references: [id])
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
